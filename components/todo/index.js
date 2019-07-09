@@ -3,13 +3,13 @@ class TodoComponent {
         // Assign outer TodoComponent Element. We should do all of our searching within here, not `document`.
         this.componentElement = componentElement;
         // Get the todos container element
-        this.todosElement;
+        this.todosElement = componentElement.querySelector('.todos-container')
         // instantiate the Todos class with it
-        this.todos;
+        this.todos = new Todos(todosElement)
         // Do the same with form Element
-        this.formElement;
+        this.formElement = componentElement.querySelector('.todo-form')
         // I've given you a hint here. Look at the TodoForm constructor.
-        this.form; 
+        this.form = new TodoForm(this.formElement, this.todos)
     }
 }
 
@@ -19,6 +19,7 @@ class Todos {
     }
     addTodo(text) {
         // Add a todo element to the container, and instantiate its class
+        this.containerElement.appendChild(new Todo(text))
     }
 }
 
